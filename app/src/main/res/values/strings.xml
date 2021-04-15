@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OneBanc Assignment</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="pay">Pay</string>
+    <string name="decline">Decline</string>
+    <string name="you_received">You received</string>
+    <string name="request_received">Request received</string>
+    <string name="you_requested">You requested</string>
+    <string name="you_paid">You paid</string>
+    <string name="cancel">Cancel</string>
+</resources>

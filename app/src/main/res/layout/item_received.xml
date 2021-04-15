@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.onebanc.assignment.viewmodel.ItemReceivedViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_screen">
+
+        <LinearLayout
+            android:id="@+id/rlyData"
+            android:layout_width="@dimen/width_chat_box"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chat_dialog"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_screen">
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@{viewModel.amount}"
+                   android:textColor="@color/black"
+                   android:textSize="@dimen/text_size_large" />
+
+               <FrameLayout
+                   android:layout_width="wrap_content"
+                   android:layout_alignParentEnd="true"
+                   android:layout_centerVertical="true"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/text_size_medium"
+                       android:visibility="@{viewModel.isSuccess?View.VISIBLE:View.GONE}"
+                       android:text="@string/you_received"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/text_size_medium"
+                       android:layout_height="wrap_content"
+                       android:visibility="@{viewModel.isPending?View.VISIBLE:View.GONE}"
+                       android:text="@string/request_received"/>
+
+               </FrameLayout>
+
+           </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{viewModel.isSuccess?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-4dp"
+                        android:text="@string/transaction_id"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="@{viewModel.transactionId}"
+                        android:textSize="@dimen/text_size_small" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="@{viewModel.isPending?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_button"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/btn_padding_horizontal"
+                        android:paddingTop="@dimen/btn_padding_vertical"
+                        android:paddingEnd="@dimen/btn_padding_horizontal"
+                        android:paddingBottom="@dimen/btn_padding_vertical"
+                        android:text="@string/pay"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_screen"
+                        android:background="@drawable/bg_button"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/btn_padding_horizontal"
+                        android:paddingTop="@dimen/btn_padding_vertical"
+                        android:paddingEnd="@dimen/btn_padding_horizontal"
+                        android:paddingBottom="@dimen/btn_padding_vertical"
+                        android:text="@string/decline"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_medium" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:src="@drawable/ic_arrow_forward"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rlyData"
+            android:layout_alignEnd="@id/rlyData"
+            android:text="@{viewModel.dateTimeString}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_small" />
+
+    </RelativeLayout>
+
+</layout>

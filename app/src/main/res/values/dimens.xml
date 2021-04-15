@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="margin_screen">16dp</dimen>
+    <dimen name="margin_default">12dp</dimen>
+    <dimen name="text_size_large">30sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="btn_corner_radius">3dp</dimen>
+    <dimen name="btn_padding_horizontal">20dp</dimen>
+    <dimen name="btn_padding_vertical">2dp</dimen>
+    <dimen name="width_chat_box">300dp</dimen>
+</resources>
